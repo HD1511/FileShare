@@ -3,7 +3,7 @@ import { responseHandler } from "./responseHandler";
 
 export const UploadFile = async (email: string, file: object) => {
     try {
-        const { data } = await axios.post(`${process.env.NEXT_PUBLIC_URI}/api/uploadFile`, {
+        const { data } = await axios.post(`/api/uploadFile`, {
             email,
             file
         })
@@ -15,7 +15,7 @@ export const UploadFile = async (email: string, file: object) => {
 
 export const UpdatePassword = async (email: string, docId: string, password: string) => {
     try {
-        const { data } = await axios.post(`${process.env.NEXT_PUBLIC_URI}/api/updatePassword`, {
+        const { data } = await axios.post(`/api/updatePassword`, {
             email,
             docId,
             password
@@ -28,7 +28,7 @@ export const UpdatePassword = async (email: string, docId: string, password: str
 
 export const PreviewFile = async (email: string, docId: string) => {
     try {
-        const { data } = await axios.post(`${process.env.NEXT_PUBLIC_URI}/api/previewFile`, {
+        const { data } = await axios.post(`/api/previewFile`, {
             email,
             docId
         });
@@ -40,7 +40,7 @@ export const PreviewFile = async (email: string, docId: string) => {
 
 export const DeleteFile = async (email: string, docId: string) => {
     try {
-        const { data } = await axios.post(`${process.env.NEXT_PUBLIC_URI}/api/deleteFile`, {
+        const { data } = await axios.post(`/api/deleteFile`, {
             email,
             docId
         });
@@ -52,7 +52,7 @@ export const DeleteFile = async (email: string, docId: string) => {
 
 export const PreviewAllFiles = async (email: string) => {
     try {
-        const { data } = await axios.post(`${process.env.NEXT_PUBLIC_URI}/api/previewAllFiles`, {
+        const { data } = await axios.post(`/api/previewAllFiles`, {
             email
         });
         return data;
