@@ -1,0 +1,56 @@
+.p-fileupload-content {
+    padding: 0;
+    padding-block: 2rem;
+}
+
+.p-fileupload-advanced {
+    width: 65%;
+}
+
+.p-message-wrapper{
+    padding: 0;
+}
+
+.p-fileupload .p-fileupload-buttonbar{
+    padding: 3rem 1.25rem;
+}
+
+.p-fileupload-content>p{
+    text-align: center;
+    padding: 4rem;
+}
+
+.p-fileupload-content > div + div{
+    padding: 1rem;
+}
+
+@media (max-width: 1024px) {
+    .p-fileupload-advanced {
+        width: 95%;
+    }
+
+    .p-fileupload-buttonbar>.p-button {
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .p-fileupload-buttonbar>.p-button {
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .p-fileupload .p-fileupload-buttonbar {
+        gap: 0.40rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .p-fileupload-buttonbar>.p-button {
+        padding: 0.65rem;
+        font-size: 0.8rem;
+    }
+}
