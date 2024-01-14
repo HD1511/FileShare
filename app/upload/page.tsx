@@ -5,14 +5,15 @@ import { useRouter } from "next/navigation";
 
 import Loading from "../loading";
 import useAuth from "@/hooks/useAuth";
-import { UploadFile } from "@/utils/apiHandler";
-import { ToastFailed } from "@/utils/toats";
 
 import { FileUpload } from "primereact/fileupload";
 import { Badge } from 'primereact/badge';
 import { Button } from "primereact/button";
 import { ProgressBar } from "primereact/progressbar";
 import 'primeicons/primeicons.css';
+
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
 
 import { storage } from "@/src/firebase/config";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
@@ -72,13 +73,16 @@ export default function Upload() {
             shortUrl: process.env.NEXT_PUBLIC_URI + `/download/${encodedURIEmail}/` + docId,
         };
 
-        const data = await UploadFile(user.email,newObject);
-        
-        if(data.status === "Success"){
-            router.push(`/file/${docId}`);
-        }else{
-            ToastFailed("Internal server error");
-        }
+        const docRef = firebase.firestore().collection('users').doc(user.email);
+
+        await docRef
+            .set({
+                allFiles: firebase.firestore.FieldValue.arrayUnion(newObject)
+            }, {
+                merge: true
+            })
+
+        router.push(`/file/${docId}`);
 
     }
 

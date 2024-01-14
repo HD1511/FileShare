@@ -1,18 +1,6 @@
 import axios from "axios";
 import { responseHandler } from "./responseHandler";
 
-export const UploadFile = async (email: string, file: object) => {
-    try {
-        const { data } = await axios.post(`/api/uploadFile`, {
-            email,
-            file
-        })
-        return data;
-    } catch (e) {
-        responseHandler("Failed", "Internal server error", e);
-    }
-}
-
 export const UpdatePassword = async (email: string, docId: string, password: string) => {
     try {
         const { data } = await axios.post(`/api/updatePassword`, {
