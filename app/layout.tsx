@@ -6,6 +6,7 @@ import { Provider } from '@/components/Provider';
 import { NavbarComponent } from '@/components/Navbar';
 import { PrimeReactProvider } from 'primereact/api';
 
+import 'primereact/resources/primereact.min.css';
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 
 import "./styles.css";
