@@ -25,7 +25,6 @@ export default async function previewFile(req: NextApiRequest, res: NextApiRespo
 
     } catch (e) {
         console.log(e);
-
         responseAPIHandler(res, 200, "Failed", "Internal server error");
     }
 

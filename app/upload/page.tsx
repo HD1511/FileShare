@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
+import { useUrl } from 'nextjs-current-url';
 
 import Loading from "../loading";
 import useAuth from "@/hooks/useAuth";
@@ -27,9 +28,13 @@ import './style.css';
 export default function Upload() {
     let user = useAuth();
     const router = useRouter();
+    const { href: currentFullUrl } = useUrl() ?? {};
     const [progresspercent, setProgresspercent] = React.useState<number>(0);
-    const fileUploadRef = React.useRef(null);
+    const fileUploadRef = React.useRef(null); 
 
+    const getCurrentUrlArray =  currentFullUrl?.split('/');
+    const getCurrentUrl = `${getCurrentUrlArray && getCurrentUrlArray[0]}//${getCurrentUrlArray && getCurrentUrlArray[2]}`;
+    
     const uploadFile = async ({ files }: { files: any }) => {
         const [file] = files;
 
@@ -52,6 +57,7 @@ export default function Upload() {
             }
         );
     }
+    
 
     const setDocument = async (downloadURL: any, file: any) => {
 
@@ -70,7 +76,7 @@ export default function Upload() {
             fileUrl: downloadURL,
             fileId: docId,
             password: "",
-            shortUrl: process.env.NEXT_PUBLIC_URI + `/download/${encodedURIEmail}/` + docId,
+            shortUrl: getCurrentUrl + `/download/${encodedURIEmail}/` + docId,
         };
 
         const docRef = firebase.firestore().collection('users').doc(user.email);

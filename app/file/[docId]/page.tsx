@@ -29,9 +29,9 @@ export default function Upload({ params }: { params: any }) {
         const getData = async () => {
             const data = await PreviewFile(user.email, docId);
 
-            if(data.status === "Success"){
+            if (data.status === "Success") {
                 setFileData(data.data);
-            }else{
+            } else {
                 ToastFailed("Internal server error");
             }
         }
