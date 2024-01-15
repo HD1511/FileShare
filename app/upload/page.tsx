@@ -13,10 +13,9 @@ import { Button } from "primereact/button";
 import { ProgressBar } from "primereact/progressbar";
 import 'primeicons/primeicons.css';
 
+import { storage } from "@/src/firebase/config";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
-
-import { storage } from "@/src/firebase/config";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 
 import randomstring from 'randomstring';
@@ -58,7 +57,6 @@ export default function Upload() {
         );
     }
     
-
     const setDocument = async (downloadURL: any, file: any) => {
 
         const docId = randomstring.generate({
