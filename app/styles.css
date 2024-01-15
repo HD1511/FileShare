@@ -6,10 +6,12 @@
   @tailwind base;
 }
 
+/*
 @layer tailwind-utilities {
   @tailwind components;
   @tailwind utilities;
 }
+*/
 
 @layer utilities {
 
