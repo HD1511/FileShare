@@ -126,6 +126,6 @@ Project Link: [https://github.com/HD1511/FileShare](https://github.com/HD1511/Fi
 ![](images/upload-file.png)
 ![](images/show-upload-file.png)
 ![](images/show-file.png)
-![](images/show-password-file.png)
 ![](images/shared-file.png)
+![](images/shared-password-file.png)
 ![](images/all-upload-files.png)
