@@ -29,11 +29,11 @@ export default function Upload() {
     const router = useRouter();
     const { href: currentFullUrl } = useUrl() ?? {};
     const [progresspercent, setProgresspercent] = React.useState<number>(0);
-    const fileUploadRef = React.useRef(null); 
+    const fileUploadRef = React.useRef(null);
 
-    const getCurrentUrlArray =  currentFullUrl?.split('/');
+    const getCurrentUrlArray = currentFullUrl?.split('/');
     const getCurrentUrl = `${getCurrentUrlArray && getCurrentUrlArray[0]}//${getCurrentUrlArray && getCurrentUrlArray[2]}`;
-    
+
     const uploadFile = async ({ files }: { files: any }) => {
         const [file] = files;
 
@@ -56,7 +56,7 @@ export default function Upload() {
             }
         );
     }
-    
+
     const setDocument = async (downloadURL: any, file: any) => {
 
         const docId = randomstring.generate({
